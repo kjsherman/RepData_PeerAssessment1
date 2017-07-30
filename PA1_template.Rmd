@@ -29,8 +29,7 @@ Loading and preprocessing the data
 
 
 ```{r, echo=TRUE}
-  AMData$date <- weekdays(as.Date(AMData$date))
-  AMData$DateTime<- as.POSIXct(AMData$date, format="%Y-%m-%d")
+  AMData$day <- weekdays(as.Date(AMData$date))
 ```
 
 What is mean total number of steps taken per day?
@@ -139,7 +138,7 @@ Are there differences in activity patterns between weekdays and weekends?
 - Modify dataset
 ```{r, echo=TRUE}
 
-AMData2$Type <- ifelse(AMData2$date %in% c("Saturday", "Sunday"), "Weekend", "Weekday")
+AMData2$Type <- ifelse(AMData2$day %in% c("Saturday", "Sunday"), "Weekend", "Weekday")
 ```
 
 2.Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
